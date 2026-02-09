@@ -91,15 +91,13 @@
         <a href="#house-scenes-section">House Scenes</a>
         <a href="#robot-eval-section">Robot Eval</a>
         <a href="#bibtex-section">Citation</a>
-        <!-- More Research dropdown (hidden for anonymous submission)
         <div class="nav-dropdown">
           <a class="nav-dropdown-trigger">More Research <span style="font-size: 0.6em;">&#9662;</span></a>
           <div class="nav-dropdown-content">
-            <a href="https://steerable-scene-generation.github.io">Steerable Scene Generation</a>
-            <a href="https://scalable-real2sim.github.io">Scalable Real2Sim</a>
+            <a href="https://steerable-scene-generation.github.io" target="_blank" rel="noopener noreferrer">Steerable Scene Generation</a>
+            <a href="https://scalable-real2sim.github.io" target="_blank" rel="noopener noreferrer">Scalable Real2Sim</a>
           </div>
         </div>
-        -->
       </div>
     </div>
   </nav>
@@ -1877,6 +1875,19 @@
           document.body.style.overflow = '';
         });
       });
+
+      // Nav dropdown toggle
+      const dropdownTrigger = document.querySelector('.nav-dropdown-trigger');
+      const dropdown = document.querySelector('.nav-dropdown');
+      if (dropdownTrigger && dropdown) {
+        dropdownTrigger.addEventListener('click', (e) => {
+          e.stopPropagation();
+          dropdown.classList.toggle('open');
+        });
+        document.addEventListener('click', () => {
+          dropdown.classList.remove('open');
+        });
+      }
     });
   </script>
 </body>

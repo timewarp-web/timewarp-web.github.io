@@ -57,6 +57,7 @@ html {
 }
 
 .site-nav .nav-inner {
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -105,6 +106,68 @@ html {
 .site-nav .nav-links a.active {
   color: #fff;
   background: rgba(0, 180, 216, 0.15);
+}
+
+/* Nav dropdown */
+.nav-dropdown {
+  position: static;
+}
+
+.nav-dropdown-trigger {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  transition: all var(--transition);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav-dropdown-trigger:hover,
+.nav-dropdown.open .nav-dropdown-trigger {
+  color: #fff;
+  background: rgba(0, 180, 216, 0.15);
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  right: 1.5rem;
+  top: 100%;
+  min-width: 220px;
+  padding: 0.5rem 0;
+  background: rgba(10, 22, 40, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 180, 216, 0.15);
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+}
+
+.nav-dropdown.open .nav-dropdown-content {
+  display: block;
+}
+
+.nav-dropdown-content a {
+  display: block;
+  padding: 0.55rem 1rem;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--transition);
+  white-space: nowrap;
+  background: none !important;
+  border-radius: 0;
+}
+
+.nav-dropdown-content a:hover {
+  color: #fff !important;
+  background: rgba(0, 180, 216, 0.12) !important;
 }
 
 /* ---- Hero Section with Background Video ---- */
