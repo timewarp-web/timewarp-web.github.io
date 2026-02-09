@@ -111,6 +111,8 @@ html {
 /* Nav dropdown */
 .nav-dropdown {
   position: static;
+  display: flex;
+  align-items: center;
 }
 
 .nav-dropdown-trigger {
@@ -286,6 +288,52 @@ html {
   color: rgba(255, 255, 255, 0.7);
   font-size: 1.1rem;
   margin-top: 1rem;
+}
+
+/* Author name links in hero */
+.hero-section .publication-authors a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.hero-section .publication-authors a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Institutional logos — positioned in top corners on desktop */
+.hero-logos {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 32px;
+  pointer-events: none;
+}
+.hero-logo-link {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+.hero-logo {
+  height: 40px;
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.5));
+  opacity: 0.9;
+  transition: opacity var(--transition);
+}
+.hero-logo:hover {
+  opacity: 1;
+}
+.hero-logo-link:first-child .hero-logo {
+  height: 55px;
 }
 
 .hero-section .publication-links {
@@ -677,10 +725,6 @@ html {
 .pipeline-stage:nth-child(4) { border-top-color: var(--accent-warm); }
 .pipeline-stage:nth-child(5) { border-top-color: #ef4444; }
 
-.pipeline-stage:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-}
 
 .pipeline-stage .stage-num {
   font-family: 'Google Sans', sans-serif;
@@ -775,6 +819,35 @@ html {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* ---- Video Play Indicator ---- */
+.video-play-indicator {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 2px;
+  z-index: 3;
+  pointer-events: none;
+  animation: playPulse 2s ease-in-out infinite;
+  transition: opacity 0.4s ease;
+}
+
+.video-play-indicator.hidden {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes playPulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.08); opacity: 1; }
 }
 
 /* ---- RBY1 Video Labels ---- */
@@ -1150,6 +1223,15 @@ footer.footer .footer-bottom p {
 
   .hero-section .publication-title {
     font-size: 1.8rem;
+  }
+
+  /* On mobile: hide logos (hero is too short) */
+  .hero-logos {
+    display: none;
+  }
+  .hero-section .publication-authors {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
   }
 
   .stats-bar .stats-inner {
