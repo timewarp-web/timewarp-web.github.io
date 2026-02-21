@@ -3,11 +3,11 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="SceneSmith: Agentic Generation of Simulation-Ready Indoor Scenes">
+  <meta name="description" content="TimeWarp: Evaluating Web Agents by Revisiting the Past">
   <meta name="keywords" content="Scene Generation, Simulation, Indoor Scenes, VLM, Agents">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Tags for link preview -->
-  <meta property="og:title" content="SceneSmith: Agentic Generation of Simulation-Ready Indoor Scenes" />
+  <meta property="og:title" content="TimeWarp: Evaluating Web Agents by Revisiting the Past" />
   <meta property="og:description"
     content="A hierarchical agentic framework that generates simulation-ready indoor environments from natural language prompts." />
   <meta property="og:url" content="https://scenesmith.github.io/" />
@@ -22,7 +22,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9RH5ZJ2FEL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-9RH5ZJ2FEL');
@@ -33,7 +33,7 @@
   <link rel="shortcut icon" href="static/favicon/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="static/favicon/apple-touch-icon.png" />
 
-  <title>SceneSmith: Agentic Generation of Simulation-Ready Indoor Scenes</title>
+  <title>TimeWarp: Evaluating Web Agents by Revisiting the Past</title>
 
   <!-- Three.js import map - MUST come before any module scripts -->
   <script type="importmap">
@@ -62,7 +62,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="stylesheet" href="./static/css/viewer.css">
-  <link rel="preload" href="./static/videos/teaser_bg.mp4" as="video" type="video/mp4">
+  <link rel="preload" href="./static/videos/teaser_new.mp4" as="video" type="video/mp4">
 
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
@@ -81,7 +81,7 @@
   <nav class="site-nav" id="site-nav">
     <div class="nav-inner">
       <a href="#" class="nav-brand">
-        <img src="./static/images/symbol_no_text.svg" alt=""> SceneSmith
+        <img src="./static/images/symbol_no_text.svg" alt=""> TimeWarp
       </a>
       <div class="nav-links">
         <a href="#buildup-section">Construction</a>
@@ -95,8 +95,10 @@
         <div class="nav-dropdown">
           <a class="nav-dropdown-trigger">More Research <span style="font-size: 0.6em;">&#9662;</span></a>
           <div class="nav-dropdown-content">
-            <a href="https://steerable-scene-generation.github.io" target="_blank" rel="noopener noreferrer">Steerable Scene Generation</a>
-            <a href="https://scalable-real2sim.github.io" target="_blank" rel="noopener noreferrer">Scalable Real2Sim</a>
+            <a href="https://steerable-scene-generation.github.io" target="_blank" rel="noopener noreferrer">Steerable
+              Scene Generation</a>
+            <a href="https://scalable-real2sim.github.io" target="_blank" rel="noopener noreferrer">Scalable
+              Real2Sim</a>
           </div>
         </div>
       </div>
@@ -107,16 +109,17 @@
   <section class="hero-section" id="hero">
     <!-- Background video -->
     <div class="hero-video-bg">
-      <video id="hero-video" muted autoplay loop playsinline preload="auto" poster="./static/videos/teaser_poster.jpg">
-        <source src="./static/videos/teaser_bg.mp4" type="video/mp4">
+      <video id="hero-video" muted autoplay loop playsinline preload="auto"
+        poster="./static/videos/teaser_poster_tw.png">
+        <source src="./static/videos/teaser_new.mp4" type="video/mp4">
       </video>
       <script>
         // Recover from CDN stalls on GitHub Pages
-        (function() {
+        (function () {
           var v = document.getElementById('hero-video');
-          v.addEventListener('stalled', function() { v.load(); });
-          v.addEventListener('waiting', function() {
-            setTimeout(function() { if (v.paused) v.play(); }, 2000);
+          v.addEventListener('stalled', function () { v.load(); });
+          v.addEventListener('waiting', function () {
+            setTimeout(function () { if (v.paused) v.play(); }, 2000);
           });
         })();
       </script>
@@ -129,56 +132,62 @@
     <div class="hero-orb hero-orb-3"></div>
     <!-- Institutional logos (top corners on desktop, centered top on mobile) -->
     <div class="hero-logos">
-      <a href="https://www.csail.mit.edu/" target="_blank" rel="noopener noreferrer" class="hero-logo-link">
-        <img src="./static/images/mit_csail_logo.svg" alt="MIT CSAIL" class="hero-logo">
+      <a href="https://www.utah.edu/" target="_blank" rel="noopener noreferrer" class="hero-logo-link" id="utah-link">
+        <img src="./static/images/university-of-utah-logo.svg" alt="University of Utah" class="hero-logo"
+          id="utah-logo">
       </a>
-      <a href="https://www.tri.global/" target="_blank" rel="noopener noreferrer" class="hero-logo-link">
-        <img src="./static/images/tri_logo.svg" alt="Toyota Research Institute" class="hero-logo">
+      <a href="https://sparklabutah.github.io/" target="_blank" rel="noopener noreferrer" class="hero-logo-link">
+        <img src="./static/images/sparkLab.png" alt="Spark Lab Utah" class="hero-logo" id="spark-logo">
       </a>
     </div>
     <!-- Content -->
     <div class="hero-content-wrapper">
-      <div class="container is-max-desktop">
+      <div class="container is-max-widescreen">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">
-              <img src="./static/images/symbol.svg" alt="SceneSmith symbol" style="height: 1em; vertical-align: middle; margin-right: 0.1em; position: relative; top: -0.08em;"><span class="accent-text">SceneSmith:</span><br>Agentic Generation of Simulation-Ready Indoor Scenes
-            </h1>
-            <p class="publication-authors">
-              <a href="https://nepfaff.github.io/" target="_blank" rel="noopener noreferrer">Nicholas Pfaff</a>,
-              <a href="https://tommycohn.com/" target="_blank" rel="noopener noreferrer">Thomas Cohn</a>,
-              <a href="https://zakharos.github.io/" target="_blank" rel="noopener noreferrer">Sergey Zakharov</a>,
-              <a href="https://www.linkedin.com/in/rick-cory-31a68979/" target="_blank" rel="noopener noreferrer">Rick Cory</a>,
-              <a href="https://locomotion.csail.mit.edu/russt.html" target="_blank" rel="noopener noreferrer">Russ Tedrake</a>
-            </p>
+            <div class="hero-title-container">
+              <h1 class="title is-1 publication-title">
+                <span class="accent-text">TimeWarp:</span> Evaluating Web Agents by Revisiting the Past
+              </h1>
+              <p class="publication-authors">
+                <a href="https://farhanishmam.github.io/" target="_blank" rel="noopener noreferrer">Md Farhan
+                  Ishmam</a> and
+                <a href="https://kennethmarino.com/" target="_blank" rel="noopener noreferrer">Kenneth Marino</a>
+              </p>
+            </div>
             <div class="column has-text-centered">
               <div class="publication-links">
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/2602.09153" class="external-link button is-normal is-rounded" target="_blank">
+                  <a href="https://arxiv.org/abs/2602.09153" class="external-link button is-normal is-rounded"
+                    target="_blank">
                     <span class="icon"><i class="ai ai-arxiv"></i></span>
                     <span>arXiv</span>
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://youtu.be/V5Sg2NPqJb8" class="external-link button is-normal is-rounded" target="_blank">
+                  <a href="https://youtu.be/V5Sg2NPqJb8" class="external-link button is-normal is-rounded"
+                    target="_blank">
                     <span class="icon"><i class="fab fa-youtube"></i></span>
                     <span>Video</span>
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://github.com/nepfaff/scenesmith" class="external-link button is-normal is-rounded" target="_blank">
+                  <a href="https://github.com/nepfaff/scenesmith" class="external-link button is-normal is-rounded"
+                    target="_blank">
                     <span class="icon"><i class="fab fa-github"></i></span>
                     <span>Code</span>
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://huggingface.co/datasets/nepfaff/scenesmith-example-scenes" class="external-link button is-normal is-rounded" target="_blank">
+                  <a href="https://huggingface.co/datasets/nepfaff/scenesmith-example-scenes"
+                    class="external-link button is-normal is-rounded" target="_blank">
                     <span class="icon"><i class="fas fa-database"></i></span>
                     <span>Scene Dataset</span>
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://x.com/NicholasEPfaff/status/2021626601780174969" class="external-link button is-normal is-rounded" target="_blank">
+                  <a href="https://x.com/NicholasEPfaff/status/2021626601780174969"
+                    class="external-link button is-normal is-rounded" target="_blank">
                     <span class="icon"><i class="fab fa-twitter"></i></span>
                     <span>X Post</span>
                   </a>
@@ -242,10 +251,12 @@
     <div class="container is-max-widescreen">
       <div class="info-callout fade-in" style="max-width: 900px; margin: 0 auto; border-left-width: 5px;">
         <p style="font-size: 1.05rem; line-height: 1.7;">
-          <strong>SceneSmith</strong> is a hierarchical agentic framework that generates simulation-ready indoor environments
-          from natural language prompts. VLM agents collaborate across successive stages to construct richly furnished scenes&mdash;from
-          single rooms to entire houses. The framework tightly integrates text-to-3D asset generation, articulated object retrieval,
-          and physical property estimation to produce scenes directly usable in physics simulators for robotics research.
+          <strong>TimeWarp</strong> is a benchmark designed to evaluate the robustness of agents to the evolving web.
+          TimeWarp consists of three web environments: <i>Wiki</i>, <i>News</i>, and <i>Shop</i>, each with six UI versions
+          across different eras of the internet. The environments are lightweight, extensible, and tighyly integrated with the popular web agent
+          framework, BrowserGym. The TimeWarp benchmark also includes <strong>TimeTraj</strong>, a method for scalably collecting
+          trajectories via human plans, and <strong>TimeWarp-BC</strong>, a variant of Behavior Cloning (BC) to train agents better via
+          knowledge distillation on tasks that require memory and planning.
         </p>
       </div>
     </div>
@@ -258,69 +269,88 @@
       <div id="buildup-carousel" class="carousel">
         <div class="results-item">
           <div class="prompt-tooltip-wrap">
-            <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;A dining room with a long table set for 12 people&hellip;&rdquo; <span class="prompt-hover-hint">(hover for full prompt)</span></p>
-            <div class="prompt-tooltip-box">&ldquo;A dining room with a long table set for 12 people. Each setting has a small plate stacked on a large plate, a glass, a fork, and a knife.&rdquo;</div>
+            <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;A dining room with a long table set for 12
+              people&hellip;&rdquo; <span class="prompt-hover-hint">(hover for full prompt)</span></p>
+            <div class="prompt-tooltip-box">&ldquo;A dining room with a long table set for 12 people. Each setting has a
+              small plate stacked on a large plate, a glass, a fork, and a knife.&rdquo;</div>
           </div>
-          <div class="video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
-            <video class="lazy-video" muted playsinline controls
-              data-src="./static/videos/scene_buildup/158.mp4"
+          <div class="video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+            <video class="lazy-video" muted playsinline controls data-src="./static/videos/scene_buildup/158.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
             <div class="video-spinner"></div>
           </div>
         </div>
         <div class="results-item">
           <div class="prompt-tooltip-wrap">
-            <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;A bookstore with at least 50 books.&rdquo;</p>
+            <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;A bookstore with at least 50 books.&rdquo;
+            </p>
           </div>
-          <div class="video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
-            <video class="lazy-video" muted playsinline controls
-              data-src="./static/videos/scene_buildup/174.mp4"
+          <div class="video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+            <video class="lazy-video" muted playsinline controls data-src="./static/videos/scene_buildup/174.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
             <div class="video-spinner"></div>
           </div>
         </div>
         <div class="results-item">
           <div class="prompt-tooltip-wrap">
-            <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;A cafe with a bar counter, small round tables, and a chalkboard menu&hellip;&rdquo; <span class="prompt-hover-hint">(hover for full prompt)</span></p>
-            <div class="prompt-tooltip-box">&ldquo;A cafe with a bar counter along one wall featuring a coffee machine, a filter coffee stand, and stacks of stone coffee cups. Three small round tables with two chairs each are arranged in the center. A chalkboard menu hangs on the wall behind the counter.&rdquo;</div>
+            <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;A cafe with a bar counter, small round
+              tables, and a chalkboard menu&hellip;&rdquo; <span class="prompt-hover-hint">(hover for full
+                prompt)</span></p>
+            <div class="prompt-tooltip-box">&ldquo;A cafe with a bar counter along one wall featuring a coffee machine,
+              a filter coffee stand, and stacks of stone coffee cups. Three small round tables with two chairs each are
+              arranged in the center. A chalkboard menu hangs on the wall behind the counter.&rdquo;</div>
           </div>
-          <div class="video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
-            <video class="lazy-video" muted playsinline controls
-              data-src="./static/videos/scene_buildup/111.mp4"
+          <div class="video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+            <video class="lazy-video" muted playsinline controls data-src="./static/videos/scene_buildup/111.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
             <div class="video-spinner"></div>
           </div>
         </div>
         <div class="results-item">
           <div class="prompt-tooltip-wrap">
-            <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;A robotics lab with workbenches, robotic arms, and a 3D printer&hellip;&rdquo; <span class="prompt-hover-hint">(hover for full prompt)</span></p>
-            <div class="prompt-tooltip-box">&ldquo;A robotics lab with two workbenches with robotic arms. Tool shelves on the wall hold tools, and a 3D printer sits in the corner.&rdquo;</div>
+            <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;A robotics lab with workbenches, robotic
+              arms, and a 3D printer&hellip;&rdquo; <span class="prompt-hover-hint">(hover for full prompt)</span></p>
+            <div class="prompt-tooltip-box">&ldquo;A robotics lab with two workbenches with robotic arms. Tool shelves
+              on the wall hold tools, and a 3D printer sits in the corner.&rdquo;</div>
           </div>
-          <div class="video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
-            <video class="lazy-video" muted playsinline controls
-              data-src="./static/videos/scene_buildup/132.mp4"
+          <div class="video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+            <video class="lazy-video" muted playsinline controls data-src="./static/videos/scene_buildup/132.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
             <div class="video-spinner"></div>
           </div>
         </div>
         <div class="results-item">
           <div class="prompt-tooltip-wrap">
-            <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;A yoga studio with yoga mats, a wall mirror, and meditation cushions&hellip;&rdquo; <span class="prompt-hover-hint">(hover for full prompt)</span></p>
-            <div class="prompt-tooltip-box">&ldquo;A yoga studio with yoga mats on the floor, a mirror on the wall, and meditation cushions in the corner.&rdquo;</div>
+            <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;A yoga studio with yoga mats, a wall
+              mirror, and meditation cushions&hellip;&rdquo; <span class="prompt-hover-hint">(hover for full
+                prompt)</span></p>
+            <div class="prompt-tooltip-box">&ldquo;A yoga studio with yoga mats on the floor, a mirror on the wall, and
+              meditation cushions in the corner.&rdquo;</div>
           </div>
-          <div class="video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
-            <video class="lazy-video" muted playsinline controls
-              data-src="./static/videos/scene_buildup/129.mp4"
+          <div class="video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+            <video class="lazy-video" muted playsinline controls data-src="./static/videos/scene_buildup/129.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
             <div class="video-spinner"></div>
           </div>
         </div>
         <div class="results-item">
           <div class="prompt-tooltip-wrap">
-            <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;A small family home with a master bedroom, a kids room, a living-dining room, a kitchen, a hallway, and a bathroom&hellip;&rdquo; <span class="prompt-hover-hint">(hover for full prompt)</span></p>
-            <div class="prompt-tooltip-box">&ldquo;A small family home with a master bedroom, a kids room, a living-dining room, a kitchen, a hallway, and a bathroom. The master bedroom has a bed and a dresser. The kids room has a bunk bed and a toy box. The living-dining room has a sofa, a dining table with four chairs, and a TV. The kitchen has a refrigerator and a stove. The hallway has a coat rack and a shoe cabinet. The bathroom has a toilet, a sink, and a bathtub.&rdquo;</div>
+            <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;A small family home with a master bedroom,
+              a kids room, a living-dining room, a kitchen, a hallway, and a bathroom&hellip;&rdquo; <span
+                class="prompt-hover-hint">(hover for full prompt)</span></p>
+            <div class="prompt-tooltip-box">&ldquo;A small family home with a master bedroom, a kids room, a
+              living-dining room, a kitchen, a hallway, and a bathroom. The master bedroom has a bed and a dresser. The
+              kids room has a bunk bed and a toy box. The living-dining room has a sofa, a dining table with four
+              chairs, and a TV. The kitchen has a refrigerator and a stove. The hallway has a coat rack and a shoe
+              cabinet. The bathroom has a toilet, a sink, and a bathtub.&rdquo;</div>
           </div>
-          <div class="video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+          <div class="video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
             <video class="lazy-video" muted playsinline controls
               data-src="./static/videos/scene_buildup/full_house_buildup_animation.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
@@ -330,7 +360,9 @@
       </div>
       <div class="info-callout fade-in" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
         <p>
-          SceneSmith constructs scenes through five successive stages, each implemented as an interaction among three VLM agents: a <strong>designer</strong> that proposes object placements, a <strong>critic</strong> that evaluates realism and coherence, and an <strong>orchestrator</strong> that mediates between the two.
+          SceneSmith constructs scenes through five successive stages, each implemented as an interaction among three
+          VLM agents: a <strong>designer</strong> that proposes object placements, a <strong>critic</strong> that
+          evaluates realism and coherence, and an <strong>orchestrator</strong> that mediates between the two.
         </p>
       </div>
       <!-- Pipeline Stages -->
@@ -379,7 +411,8 @@
       <div id="rby1-carousel" class="carousel">
         <!-- Slide 1: hallway cabinet -->
         <div class="results-item">
-          <div class="video-wrapper rby1-video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+          <div class="video-wrapper rby1-video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
             <video class="lazy-video" muted playsinline controls
               data-src="./static/videos/rby1/rby1_hallway_cabinet.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
@@ -390,9 +423,9 @@
         </div>
         <!-- Slide 2: bar glass -->
         <div class="results-item">
-          <div class="video-wrapper rby1-video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
-            <video class="lazy-video" muted playsinline controls
-              data-src="./static/videos/rby1/rby1_bar_glass.mp4"
+          <div class="video-wrapper rby1-video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+            <video class="lazy-video" muted playsinline controls data-src="./static/videos/rby1/rby1_bar_glass.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
             <div class="video-spinner"></div>
             <span class="video-view-label video-view-label-left">Third Person</span>
@@ -401,9 +434,9 @@
         </div>
         <!-- Slide 3: house tour (navigation) -->
         <div class="results-item">
-          <div class="video-wrapper rby1-video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
-            <video class="lazy-video" muted playsinline controls
-              data-src="./static/videos/rby1/rby1_house_tour.mp4"
+          <div class="video-wrapper rby1-video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+            <video class="lazy-video" muted playsinline controls data-src="./static/videos/rby1/rby1_house_tour.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
             <div class="video-spinner"></div>
             <span class="video-view-label video-view-label-left">Third Person</span>
@@ -412,9 +445,9 @@
         </div>
         <!-- Slide 4: kids bedroom bin -->
         <div class="results-item">
-          <div class="video-wrapper rby1-video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
-            <video class="lazy-video" muted playsinline controls
-              data-src="./static/videos/rby1/rby1_kids_br_bin.mp4"
+          <div class="video-wrapper rby1-video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+            <video class="lazy-video" muted playsinline controls data-src="./static/videos/rby1/rby1_kids_br_bin.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
             <div class="video-spinner"></div>
             <span class="video-view-label video-view-label-left">Third Person</span>
@@ -423,9 +456,9 @@
         </div>
         <!-- Slide 5: grocery beans -->
         <div class="results-item">
-          <div class="video-wrapper rby1-video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
-            <video class="lazy-video" muted playsinline controls
-              data-src="./static/videos/rby1/rby1_grocery_beans.mp4"
+          <div class="video-wrapper rby1-video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+            <video class="lazy-video" muted playsinline controls data-src="./static/videos/rby1/rby1_grocery_beans.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
             <div class="video-spinner"></div>
             <span class="video-view-label video-view-label-left">Third Person</span>
@@ -434,7 +467,8 @@
         </div>
         <!-- Slide 6: living room candle -->
         <div class="results-item">
-          <div class="video-wrapper rby1-video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+          <div class="video-wrapper rby1-video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
             <video class="lazy-video" muted playsinline controls
               data-src="./static/videos/rby1/rby1_living_rm_candle.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
@@ -445,9 +479,9 @@
         </div>
         <!-- Slide 7: kitchen mug -->
         <div class="results-item">
-          <div class="video-wrapper rby1-video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
-            <video class="lazy-video" muted playsinline controls
-              data-src="./static/videos/rby1/rby1_kitchen_mug.mp4"
+          <div class="video-wrapper rby1-video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+            <video class="lazy-video" muted playsinline controls data-src="./static/videos/rby1/rby1_kitchen_mug.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
             <div class="video-spinner"></div>
             <span class="video-view-label video-view-label-left">Third Person</span>
@@ -456,9 +490,9 @@
         </div>
         <!-- Slide 8: hallway bag 0 -->
         <div class="results-item">
-          <div class="video-wrapper rby1-video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
-            <video class="lazy-video" muted playsinline controls
-              data-src="./static/videos/rby1/rby1_hallway_bag_0.mp4"
+          <div class="video-wrapper rby1-video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+            <video class="lazy-video" muted playsinline controls data-src="./static/videos/rby1/rby1_hallway_bag_0.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
             <div class="video-spinner"></div>
             <span class="video-view-label video-view-label-left">Third Person</span>
@@ -467,9 +501,9 @@
         </div>
         <!-- Slide 9: kids bedroom blocks -->
         <div class="results-item">
-          <div class="video-wrapper rby1-video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
-            <video class="lazy-video" muted playsinline controls
-              data-src="./static/videos/rby1/rby1_kids_br_blocks.mp4"
+          <div class="video-wrapper rby1-video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+            <video class="lazy-video" muted playsinline controls data-src="./static/videos/rby1/rby1_kids_br_blocks.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
             <div class="video-spinner"></div>
             <span class="video-view-label video-view-label-left">Third Person</span>
@@ -478,9 +512,9 @@
         </div>
         <!-- Slide 10: hallway bag 1 -->
         <div class="results-item">
-          <div class="video-wrapper rby1-video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
-            <video class="lazy-video" muted playsinline controls
-              data-src="./static/videos/rby1/rby1_hallway_bag_1.mp4"
+          <div class="video-wrapper rby1-video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+            <video class="lazy-video" muted playsinline controls data-src="./static/videos/rby1/rby1_hallway_bag_1.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
             <div class="video-spinner"></div>
             <span class="video-view-label video-view-label-left">Third Person</span>
@@ -489,9 +523,9 @@
         </div>
         <!-- Slide 11: kids bedroom bunny -->
         <div class="results-item">
-          <div class="video-wrapper rby1-video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
-            <video class="lazy-video" muted playsinline controls
-              data-src="./static/videos/rby1/rby1_kids_br_bunny.mp4"
+          <div class="video-wrapper rby1-video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+            <video class="lazy-video" muted playsinline controls data-src="./static/videos/rby1/rby1_kids_br_bunny.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
             <div class="video-spinner"></div>
             <span class="video-view-label video-view-label-left">Third Person</span>
@@ -500,9 +534,9 @@
         </div>
         <!-- Slide 12: living room vase -->
         <div class="results-item">
-          <div class="video-wrapper rby1-video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
-            <video class="lazy-video" muted playsinline controls
-              data-src="./static/videos/rby1/rby1_living_rm_vase.mp4"
+          <div class="video-wrapper rby1-video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+            <video class="lazy-video" muted playsinline controls data-src="./static/videos/rby1/rby1_living_rm_vase.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
             <div class="video-spinner"></div>
             <span class="video-view-label video-view-label-left">Third Person</span>
@@ -517,14 +551,16 @@
   <section class="section section-alt" id="text-to-scene-section">
     <div class="container is-max-widescreen">
       <h2 class="title is-3 has-text-centered fade-in">Open-Vocabulary Text-to-Scene Generation</h2>
-      <div class="video-wrapper" style="position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; margin: 0 auto;">
+      <div class="video-wrapper"
+        style="position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; margin: 0 auto;">
         <video id="text-to-scene-video" class="lazy-video" muted playsinline loop
           data-src="./static/videos/scene_buildup/Scene_Buildup_Animation_small.mp4"
           style="width: 100%; height: 100%; object-fit: contain;"></video>
         <div class="video-spinner"></div>
         <div class="video-play-indicator" id="text-to-scene-play-indicator">
           <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M13 7.134a1 1 0 0 1 0 1.732l-11.5 6.64A1 1 0 0 1 0 14.64V1.36A1 1 0 0 1 1.5.494L13 7.134z" fill="#fff"/>
+            <path d="M13 7.134a1 1 0 0 1 0 1.732l-11.5 6.64A1 1 0 0 1 0 14.64V1.36A1 1 0 0 1 1.5.494L13 7.134z"
+              fill="#fff" />
           </svg>
         </div>
       </div>
@@ -542,7 +578,8 @@
   <section class="section section-alt" id="earthquake-section">
     <div class="container is-max-widescreen">
       <h2 class="title is-3 has-text-centered fade-in">Simulation-Ready Scenes</h2>
-      <div class="video-wrapper" style="position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; margin: 0 auto;">
+      <div class="video-wrapper"
+        style="position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; margin: 0 auto;">
         <video id="earthquake-video" class="lazy-video" muted playsinline loop
           data-src="./static/videos/Earthquake_Sims_Animation_small.mp4"
           style="width: 100%; height: 100%; object-fit: contain;"></video>
@@ -568,7 +605,8 @@
           Select a scene to explore. Click objects to view them in isolation.
         </p>
         <p class="has-text-grey is-size-7 quality-note">
-          <i class="fas fa-info-circle"></i> Scenes shown are slightly lower quality than originals due to compression, mesh decimation, and texture downsampling for faster web loading.
+          <i class="fas fa-info-circle"></i> Scenes shown are slightly lower quality than originals due to compression,
+          mesh decimation, and texture downsampling for faster web loading.
         </p>
       </div>
 
@@ -621,7 +659,8 @@
               <button class="button is-small" id="room-hide-btn" title="Hide selected (H)" style="display: none;">
                 <span class="icon"><i class="fas fa-eye-slash"></i></span>
               </button>
-              <button class="button is-small is-warning" id="room-show-all-btn" title="Show all hidden" style="display: none;">
+              <button class="button is-small is-warning" id="room-show-all-btn" title="Show all hidden"
+                style="display: none;">
                 <span class="icon"><i class="fas fa-eye"></i></span>
                 <span>Show <span id="room-hidden-count">0</span></span>
               </button>
@@ -668,7 +707,8 @@
               </div>
               <div class="isolated-viewer-wrapper" id="room-isolated-wrapper">
                 <div class="isolated-viewer" id="room-isolated-viewer"></div>
-                <button class="button is-small isolated-fullscreen-btn" id="room-isolated-fullscreen-btn" title="Fullscreen">
+                <button class="button is-small isolated-fullscreen-btn" id="room-isolated-fullscreen-btn"
+                  title="Fullscreen">
                   <span class="icon"><i class="fas fa-expand"></i></span>
                 </button>
               </div>
@@ -742,7 +782,8 @@
               <button class="button is-small" id="house-hide-btn" title="Hide selected (H)" style="display: none;">
                 <span class="icon"><i class="fas fa-eye-slash"></i></span>
               </button>
-              <button class="button is-small is-warning" id="house-show-all-btn" title="Show all hidden" style="display: none;">
+              <button class="button is-small is-warning" id="house-show-all-btn" title="Show all hidden"
+                style="display: none;">
                 <span class="icon"><i class="fas fa-eye"></i></span>
                 <span>Show <span id="house-hidden-count">0</span></span>
               </button>
@@ -789,7 +830,8 @@
               </div>
               <div class="isolated-viewer-wrapper" id="house-isolated-wrapper">
                 <div class="isolated-viewer" id="house-isolated-viewer"></div>
-                <button class="button is-small isolated-fullscreen-btn" id="house-isolated-fullscreen-btn" title="Fullscreen">
+                <button class="button is-small isolated-fullscreen-btn" id="house-isolated-fullscreen-btn"
+                  title="Fullscreen">
                   <span class="icon"><i class="fas fa-expand"></i></span>
                 </button>
               </div>
@@ -808,9 +850,8 @@
 
       <!-- Pipeline figure -->
       <div class="content has-text-centered">
-        <img src="./static/images/robot_eval.webp"
-             alt="Robot manipulation evaluation pipeline diagram"
-             style="width: 100%;">
+        <img src="./static/images/robot_eval.webp" alt="Robot manipulation evaluation pipeline diagram"
+          style="width: 100%;">
       </div>
       <div class="content has-text-justified" style="margin-top: 1em; margin-bottom: 2em;">
         <p>
@@ -828,17 +869,19 @@
         <!-- Slide 1: Overview animation (NO controls) -->
         <div class="results-item">
           <p class="has-text-centered has-text-grey is-italic mb-2">&nbsp;</p>
-          <div class="video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
-            <video class="lazy-video" muted playsinline
-              data-src="./static/videos/robot_eval/Robot_Eval_Animation.mp4"
+          <div class="video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+            <video class="lazy-video" muted playsinline data-src="./static/videos/robot_eval/Robot_Eval_Animation.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
             <div class="video-spinner"></div>
           </div>
         </div>
         <!-- Slide 2: coke can 214 -->
         <div class="results-item">
-          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Pick a coke can from the shelf and place it on the table&rdquo;</p>
-          <div class="video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Pick a coke can from the shelf and place it
+            on the table&rdquo;</p>
+          <div class="video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
             <video class="lazy-video" muted playsinline controls
               data-src="./static/videos/robot_eval/room_coke_can_scene_214_good.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
@@ -847,8 +890,10 @@
         </div>
         <!-- Slide 3: water bottle 000 -->
         <div class="results-item">
-          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Bring the water bottle from the kitchen and place it on the coffee table in the living room&rdquo;</p>
-          <div class="video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Bring the water bottle from the kitchen and
+            place it on the coffee table in the living room&rdquo;</p>
+          <div class="video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
             <video class="lazy-video" muted playsinline controls
               data-src="./static/videos/robot_eval/house_water_bottle_scene_000_good.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
@@ -857,8 +902,10 @@
         </div>
         <!-- Slide 4: cup 301 -->
         <div class="results-item">
-          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Pick a cup from the floor and place it in the sink&rdquo;</p>
-          <div class="video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Pick a cup from the floor and place it in the
+            sink&rdquo;</p>
+          <div class="video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
             <video class="lazy-video" muted playsinline controls
               data-src="./static/videos/robot_eval/room_cup_scene_301_good.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
@@ -867,8 +914,10 @@
         </div>
         <!-- Slide 5: fruit bowl 016 -->
         <div class="results-item">
-          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Pick a fruit from the fruit bowl and place it on a plate on the dining table&rdquo;</p>
-          <div class="video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Pick a fruit from the fruit bowl and place it
+            on a plate on the dining table&rdquo;</p>
+          <div class="video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
             <video class="lazy-video" muted playsinline controls
               data-src="./static/videos/robot_eval/room_fruit_bowl_scene_016_good.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
@@ -877,8 +926,10 @@
         </div>
         <!-- Slide 6: coke can 216 -->
         <div class="results-item">
-          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Pick a coke can from the shelf and place it on the table&rdquo;</p>
-          <div class="video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Pick a coke can from the shelf and place it
+            on the table&rdquo;</p>
+          <div class="video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
             <video class="lazy-video" muted playsinline controls
               data-src="./static/videos/robot_eval/room_coke_can_scene_216_good.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
@@ -887,8 +938,10 @@
         </div>
         <!-- Slide 7: water bottle 008 -->
         <div class="results-item">
-          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Bring the water bottle from the kitchen and place it on the coffee table in the living room&rdquo;</p>
-          <div class="video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Bring the water bottle from the kitchen and
+            place it on the coffee table in the living room&rdquo;</p>
+          <div class="video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
             <video class="lazy-video" muted playsinline controls
               data-src="./static/videos/robot_eval/house_water_bottle_scene_008_good.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
@@ -897,8 +950,10 @@
         </div>
         <!-- Slide 8: cup 305 -->
         <div class="results-item">
-          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Pick a cup from the floor and place it in the sink&rdquo;</p>
-          <div class="video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Pick a cup from the floor and place it in the
+            sink&rdquo;</p>
+          <div class="video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
             <video class="lazy-video" muted playsinline controls
               data-src="./static/videos/robot_eval/room_cup_scene_305_good.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
@@ -907,8 +962,10 @@
         </div>
         <!-- Slide 9: fruit bowl 019 -->
         <div class="results-item">
-          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Pick a fruit from the fruit bowl and place it on a plate on the dining table&rdquo;</p>
-          <div class="video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Pick a fruit from the fruit bowl and place it
+            on a plate on the dining table&rdquo;</p>
+          <div class="video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
             <video class="lazy-video" muted playsinline controls
               data-src="./static/videos/robot_eval/room_fruit_bowl_scene_019_good.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
@@ -917,8 +974,10 @@
         </div>
         <!-- Slide 10: coke can 220 -->
         <div class="results-item">
-          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Pick a coke can from the shelf and place it on the table&rdquo;</p>
-          <div class="video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Pick a coke can from the shelf and place it
+            on the table&rdquo;</p>
+          <div class="video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
             <video class="lazy-video" muted playsinline controls
               data-src="./static/videos/robot_eval/room_coke_can_scene_220_good.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
@@ -927,8 +986,10 @@
         </div>
         <!-- Slide 11: fruit bowl 013 (trimmed) -->
         <div class="results-item">
-          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Pick a fruit from the fruit bowl and place it on a plate on the dining table&rdquo;</p>
-          <div class="video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Pick a fruit from the fruit bowl and place it
+            on a plate on the dining table&rdquo;</p>
+          <div class="video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
             <video class="lazy-video" muted playsinline controls
               data-src="./static/videos/robot_eval/room_fruit_bowl_scene_013_good.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
@@ -937,8 +998,10 @@
         </div>
         <!-- Slide 12: coke can 202 -->
         <div class="results-item">
-          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Pick a coke can from the shelf and place it on the table&rdquo;</p>
-          <div class="video-wrapper" style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
+          <p class="has-text-centered has-text-grey is-italic mb-2">&ldquo;Pick a coke can from the shelf and place it
+            on the table&rdquo;</p>
+          <div class="video-wrapper"
+            style="position: relative; display: inline-block; width: 100%; aspect-ratio: 16 / 9;">
             <video class="lazy-video" muted playsinline controls
               data-src="./static/videos/robot_eval/room_coke_can_scene_202_good.mp4"
               style="width: 100%; height: 100%; object-fit: contain;"></video>
@@ -970,8 +1033,7 @@
       <h2 class="title is-3 has-text-centered fade-in">Method Overview Video</h2>
       <div class="content has-text-centered fade-in">
         <iframe style="aspect-ratio: 16 / 9; width: 100%; border-radius: var(--radius);"
-          src="https://www.youtube.com/embed/V5Sg2NPqJb8"
-          allowfullscreen>
+          src="https://www.youtube.com/embed/V5Sg2NPqJb8" allowfullscreen>
         </iframe>
       </div>
     </div>
@@ -982,12 +1044,14 @@
     <div class="container is-max-widescreen">
       <h2 class="title is-3 has-text-centered fade-in">System Overview</h2>
       <div class="content has-text-centered fade-in">
-        <img src="./static/images/teaser.webp" alt="SceneSmith teaser showing a generated community center scene" style="width: 100%;">
+        <img src="./static/images/teaser.webp" alt="SceneSmith teaser showing a generated community center scene"
+          style="width: 100%;">
       </div>
       <div class="content has-text-justified fade-in">
         <p>
           <strong>Fully automated text-to-scene generation.</strong> This entire community center was generated by
-          SceneSmith without any human intervention, from a single 151-word text prompt. Beyond explicitly specified elements, SceneSmith places additional
+          SceneSmith without any human intervention, from a single 151-word text prompt. Beyond explicitly specified
+          elements, SceneSmith places additional
           objects from inferred contextual information, such as ping pong paddles and balls placed near a ping pong
           table. Objects are generated on-demand, are fully separable (non-composite), and include estimated
           physical properties, enabling direct interaction within a simulation. The resulting scenes are immediately
@@ -1005,8 +1069,10 @@
         <a href="https://nepfaff.github.io/" target="_blank" rel="noopener noreferrer">Nicholas Pfaff</a><sup>1</sup>,
         <a href="https://tommycohn.com/" target="_blank" rel="noopener noreferrer">Thomas Cohn</a><sup>1</sup>,
         <a href="https://zakharos.github.io/" target="_blank" rel="noopener noreferrer">Sergey Zakharov</a><sup>2</sup>,
-        <a href="https://www.linkedin.com/in/rick-cory-31a68979/" target="_blank" rel="noopener noreferrer">Rick Cory</a><sup>2</sup>,
-        <a href="https://locomotion.csail.mit.edu/russt.html" target="_blank" rel="noopener noreferrer">Russ Tedrake</a><sup>1</sup> <br/>
+        <a href="https://www.linkedin.com/in/rick-cory-31a68979/" target="_blank" rel="noopener noreferrer">Rick
+          Cory</a><sup>2</sup>,
+        <a href="https://locomotion.csail.mit.edu/russt.html" target="_blank" rel="noopener noreferrer">Russ
+          Tedrake</a><sup>1</sup> <br />
         <sup>1</sup>Massachusetts Institute of Technology,
         <sup>2</sup>Toyota Research Institute
       </p>
@@ -1018,7 +1084,8 @@
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered fade-in">Citation</h2>
       <div class="fade-in">
-        <pre style="background: var(--surface-dark); color: rgba(255,255,255,0.8); border-radius: var(--radius); padding: 1.5rem; font-size: 0.85rem; overflow-x: auto;"><code>@misc{scenesmith2026,
+        <pre
+          style="background: var(--surface-dark); color: rgba(255,255,255,0.8); border-radius: var(--radius); padding: 1.5rem; font-size: 0.85rem; overflow-x: auto;"><code>@misc{scenesmith2026,
   title={SceneSmith: Agentic Generation of Simulation-Ready Indoor Scenes},
   author={Nicholas Pfaff and Thomas Cohn and Sergey Zakharov and Rick Cory and Russ Tedrake},
   year={2026},
@@ -1036,10 +1103,16 @@
       <h2 class="title is-3 has-text-centered fade-in">Acknowledgements</h2>
       <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
         <p style="line-height: 1.8; text-align: justify;">
-          This work was partially supported by Amazon.com (PO No. 2D-19158853), the Office of Naval Research (ONR) under Grant No. N00014-22-1-2121, the Toyota Research Institute (TRI), and the National Science Foundation Graduate Research Fellowship Program under Grant No. 2141064. This article reflects only the views of the authors and not those of TRI or any other Toyota entity. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation or other funding organizations.
+          This work was partially supported by Amazon.com (PO No. 2D-19158853), the Office of Naval Research (ONR) under
+          Grant No. N00014-22-1-2121, the Toyota Research Institute (TRI), and the National Science Foundation Graduate
+          Research Fellowship Program under Grant No. 2141064. This article reflects only the views of the authors and
+          not those of TRI or any other Toyota entity. Any opinions, findings, and conclusions or recommendations
+          expressed in this material are those of the authors and do not necessarily reflect the views of the National
+          Science Foundation or other funding organizations.
         </p>
         <p style="line-height: 1.8; text-align: justify; margin-top: 1rem;">
-          We thank Hongkai Dai, Jeremy Binagia, Peter Werner, and Tom Erez for helpful discussions. We also thank Patrick Farrell for assistance with the videos.
+          We thank Hongkai Dai, Jeremy Binagia, Peter Werner, and Tom Erez for helpful discussions. We also thank
+          Patrick Farrell for assistance with the videos.
         </p>
       </div>
     </div>
@@ -1062,7 +1135,8 @@
           <button class="button is-small" id="fullscreen-hide-btn" title="Hide selected (H)" style="display: none;">
             <span class="icon"><i class="fas fa-eye-slash"></i></span>
           </button>
-          <button class="button is-small is-warning" id="fullscreen-show-all-btn" title="Show all hidden" style="display: none;">
+          <button class="button is-small is-warning" id="fullscreen-show-all-btn" title="Show all hidden"
+            style="display: none;">
             <span class="icon"><i class="fas fa-eye"></i></span>
             <span>Show <span id="fullscreen-hidden-count">0</span></span>
           </button>
@@ -1131,7 +1205,8 @@
       </div>
       <hr class="footer-divider">
       <div class="footer-bottom">
-        <p>Template adapted from <a href="https://github.com/nerfies/nerfies.github.io" target="_blank" rel="noopener noreferrer" style="color: rgba(255,255,255,0.5);">Nerfies</a></p>
+        <p>Template adapted from <a href="https://github.com/nerfies/nerfies.github.io" target="_blank"
+            rel="noopener noreferrer" style="color: rgba(255,255,255,0.5);">Nerfies</a></p>
         <p>&copy; 2026</p>
       </div>
     </div>
