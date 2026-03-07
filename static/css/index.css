@@ -176,7 +176,7 @@ html {
 .hero-section {
   position: relative;
   width: 100%;
-  height: 107vh;
+  height: 100vh;
   overflow: hidden;
   background: var(--surface-dark);
 }
@@ -283,7 +283,7 @@ html {
   left: 0;
   right: 0;
   z-index: 3;
-  padding: 0 1.5rem 14rem;
+  padding: 0 1.5rem 9.5rem;
 }
 
 .hero-title-container {
@@ -368,15 +368,15 @@ html {
 }
 
 #utah-logo {
-  height: 70px;
+  height: 54px;
 }
 
 #utah-link {
-  padding: 12px 20px;
+  padding: 10px 16px;
 }
 
 #spark-logo {
-  height: 120px;
+  height: 92px;
 }
 
 .hero-section .publication-links {
@@ -593,6 +593,222 @@ html {
   overflow: visible;
 }
 
+/* ---- TimeWarp Environment carousel-of-carousels ---- */
+
+/* Outer navigation row */
+.env-nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.env-nav-tabs {
+  display: flex;
+  gap: 0.5rem;
+  background: var(--surface-mid);
+  padding: 0.35rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 180, 216, 0.12);
+}
+
+.env-nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  font-family: 'Google Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.env-nav-tab:hover {
+  color: var(--text-primary);
+  background: rgba(0, 180, 216, 0.08);
+}
+
+.env-nav-tab.is-active {
+  background: linear-gradient(135deg, #fab62fdc, #4169E1);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(65, 105, 225, 0.35);
+}
+
+.env-tab-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.env-nav-arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 180, 216, 0.25);
+  background: #fff;
+  color: var(--primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  transition: all var(--transition);
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+
+.env-nav-arrow:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+  transform: scale(1.05);
+}
+
+/* Outer carousel — full width, fade between environments */
+#env-outer-carousel {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+#env-outer-carousel .slick-list {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* Each environment outer slide */
+.env-outer-slide {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  border: 1px solid rgba(0, 180, 216, 0.1);
+}
+
+/* Header row inside each outer slide */
+.env-inner-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.1rem;
+  background: linear-gradient(90deg, rgba(250, 182, 47, 0.08), rgba(65, 105, 225, 0.08));
+  border-bottom: 1px solid rgba(0, 180, 216, 0.1);
+}
+
+.env-inner-label {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.env-version-counter {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  background: rgba(0, 180, 216, 0.08);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 180, 216, 0.15);
+}
+
+.env-cur-ver {
+  color: #4169E1;
+}
+
+/* Inner (per-environment version) carousel */
+.inner-carousel {
+  max-width: 100%;
+}
+
+.inner-carousel img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.inner-carousel .slick-slide {
+  padding: 0;
+}
+
+/* Inner arrows — positioned nicely inside the card */
+.inner-carousel .slick-prev,
+.inner-carousel .slick-next {
+  z-index: 10;
+  opacity: 0.7;
+  width: 32px;
+  height: 32px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  transition: all var(--transition);
+}
+
+.inner-carousel .slick-prev:hover,
+.inner-carousel .slick-next:hover {
+  opacity: 1;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.22);
+}
+
+.inner-carousel .slick-prev { left: 10px; }
+.inner-carousel .slick-next { right: 10px; }
+
+/* Numbered dots for inner carousels */
+.inner-carousel .slick-dots {
+  bottom: -30px;
+}
+
+.inner-carousel .slick-dots li button:before {
+  content: none;
+}
+
+.inner-carousel .slick-dots li button {
+  font-family: 'Google Sans', inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-light);
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  border-radius: 50%;
+  transition: all var(--transition);
+  padding: 0;
+}
+
+.inner-carousel .slick-dots li.slick-active button {
+  background: linear-gradient(135deg, #fab62fdc, #4169E1);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(65, 105, 225, 0.4);
+}
+
+/* Extra bottom padding so dots have room */
+.env-outer-slide {
+  padding-bottom: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .env-nav-tab {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  #env-outer-carousel {
+    max-width: 100%;
+  }
+}
+
 .slick-prev:before,
 .slick-next:before {
   font-family: 'slick' !important;
@@ -674,6 +890,22 @@ html {
 .slick-dots li.slick-active button:before {
   font-family: 'slick' !important;
   color: var(--primary) !important;
+}
+
+/* Numbered dots for TimeWarp Environment carousels */
+.environment-carousel .slick-dots li button:before {
+  content: none;
+}
+
+.environment-carousel .slick-dots li button {
+  font-family: inherit;
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+.environment-carousel .slick-dots li.slick-active button {
+  color: var(--primary);
+  font-weight: 600;
 }
 
 /* ---- Prompt Tooltip (Scene Construction carousel) ---- */

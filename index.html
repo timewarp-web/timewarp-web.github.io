@@ -62,7 +62,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="stylesheet" href="./static/css/viewer.css">
-  <link rel="preload" href="./static/videos/teaser_new.mp4" as="video" type="video/mp4">
+  <link rel="preload" href="./static/videos/teaserV2.mp4" as="video" type="video/mp4">
 
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
@@ -81,7 +81,7 @@
   <nav class="site-nav" id="site-nav">
     <div class="nav-inner">
       <a href="#" class="nav-brand">
-        <img src="./static/images/symbol_no_text.svg" alt=""> TimeWarp
+        ⏳ TimeWarp
       </a>
       <div class="nav-links">
         <a href="#buildup-section">Construction</a>
@@ -93,7 +93,7 @@
         <a href="#robot-eval-section">Robot Eval</a>
         <a href="#bibtex-section">Citation</a>
         <div class="nav-dropdown">
-          <a class="nav-dropdown-trigger">More Research <span style="font-size: 0.6em;">&#9662;</span></a>
+          <a class="nav-dropdown-trigger">More Research ⏳</a>
           <div class="nav-dropdown-content">
             <a href="https://steerable-scene-generation.github.io" target="_blank" rel="noopener noreferrer">Steerable
               Scene Generation</a>
@@ -111,7 +111,7 @@
     <div class="hero-video-bg">
       <video id="hero-video" muted autoplay loop playsinline preload="auto"
         poster="./static/videos/teaser_poster_tw.png">
-        <source src="./static/videos/teaser_new.mp4" type="video/mp4">
+        <source src="./static/videos/teaserV2.mp4" type="video/mp4">
       </video>
       <script>
         // Recover from CDN stalls on GitHub Pages
@@ -251,17 +251,140 @@
     <div class="container is-max-widescreen">
       <div class="info-callout fade-in" style="max-width: 900px; margin: 0 auto; border-left-width: 5px;">
         <p style="font-size: 1.05rem; line-height: 1.7;">
-          <strong>TimeWarp</strong> is a benchmark designed to evaluate the robustness of agents to the evolving web.
+          <strong>TimeWarp</strong> is a benchmark for evaluating the robustness of agents to temporal changes in web UI.
           TimeWarp consists of three web environments: <i>Wiki</i>, <i>News</i>, and <i>Shop</i>, each with six UI
-          versions
-          across different eras of the internet. The environments are lightweight, extensible, and tighyly integrated
-          with the popular web agent
-          framework, BrowserGym. The TimeWarp benchmark also includes <strong>TimeTraj</strong>, a method for scalably
-          collecting
-          trajectories via human plans, and <strong>TimeWarp-BC</strong>, a variant of Behavior Cloning (BC) to train
-          agents better via
-          knowledge distillation on tasks that require memory and planning.
+          versions across different eras of the internet. The benchmark also includes <strong>TimeTraj</strong>, a method for scalably
+          collecting trajectories via human-refined plans, and <strong>TimeWarp-BC</strong>, a variant of Behavior Cloning (BC) to train
+          agents better via knowledge distillation on complex tasks that require memory and planning.
         </p>
+      </div>
+    </div>
+  </section>
+  <!-- TimeWarp Environment Section -->
+  <section class="section" id="environment-section">
+    <div class="container is-max-widescreen">
+      <h2 class="title is-3 has-text-centered fade-in">TimeWarp Environment</h2>
+
+      <!-- Outer environment navigation -->
+      <div class="env-nav-row fade-in">
+        <button class="env-nav-arrow" id="env-prev-btn" aria-label="Previous environment">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="env-nav-tabs">
+          <button class="env-nav-tab is-active" data-slide="0">
+            <span class="env-tab-icon">🌐</span> Wiki
+          </button>
+          <button class="env-nav-tab" data-slide="1">
+            <span class="env-tab-icon">📰</span> News
+          </button>
+          <button class="env-nav-tab" data-slide="2">
+            <span class="env-tab-icon">🛒</span> Shop
+          </button>
+        </div>
+        <button class="env-nav-arrow" id="env-next-btn" aria-label="Next environment">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <!-- Outer carousel (one slide per environment) -->
+      <div id="env-outer-carousel" class="fade-in">
+
+        <!-- Wiki slide -->
+        <div class="env-outer-slide">
+          <div class="env-inner-header">
+            <span class="env-inner-label" id="wiki-label">Wiki v1, inspired by 2001 Wikipedia</span>
+            <span class="env-version-counter"><span class="env-cur-ver wiki-cur">1</span> / 6</span>
+          </div>
+          <div id="wiki-carousel" class="environment-carousel inner-carousel">
+            <div><img src="./static/images/EnvironmentVersions/WikiV1.png" alt="Wiki V1"></div>
+            <div><img src="./static/images/EnvironmentVersions/WikiV2.png" alt="Wiki V2"></div>
+            <div><img src="./static/images/EnvironmentVersions/WikiV3.png" alt="Wiki V3"></div>
+            <div><img src="./static/images/EnvironmentVersions/WikiV4.png" alt="Wiki V4"></div>
+            <div><img src="./static/images/EnvironmentVersions/WikiV5.png" alt="Wiki V5"></div>
+            <div><img src="./static/images/EnvironmentVersions/WikiV6.png" alt="Wiki V6"></div>
+          </div>
+        </div>
+
+        <!-- News slide -->
+        <div class="env-outer-slide">
+          <div class="env-inner-header">
+            <span class="env-inner-label" id="news-label">News v1, inspired by 1999-2001 BBC News</span>
+            <span class="env-version-counter"><span class="env-cur-ver news-cur">1</span> / 6</span>
+          </div>
+          <div id="news-carousel" class="environment-carousel inner-carousel">
+            <div><img src="./static/images/EnvironmentVersions/NewsV1.png" alt="News V1"></div>
+            <div><img src="./static/images/EnvironmentVersions/NewsV2.png" alt="News V2"></div>
+            <div><img src="./static/images/EnvironmentVersions/NewsV3.png" alt="News V3"></div>
+            <div><img src="./static/images/EnvironmentVersions/NewsV4.png" alt="News V4"></div>
+            <div><img src="./static/images/EnvironmentVersions/NewsV5.png" alt="News V5"></div>
+            <div><img src="./static/images/EnvironmentVersions/NewsV6.png" alt="News V6"></div>
+          </div>
+        </div>
+
+        <!-- Shop slide -->
+        <div class="env-outer-slide">
+          <div class="env-inner-header">
+            <span class="env-inner-label" id="shop-label">Shop v1, inspired by 1999-2004 Amazon</span>
+            <span class="env-version-counter"><span class="env-cur-ver shop-cur">1</span> / 6</span>
+          </div>
+          <div id="shop-carousel" class="environment-carousel inner-carousel">
+            <div><img src="./static/images/EnvironmentVersions/ShopV1.png" alt="Shop V1"></div>
+            <div><img src="./static/images/EnvironmentVersions/ShopV2.png" alt="Shop V2"></div>
+            <div><img src="./static/images/EnvironmentVersions/ShopV3.png" alt="Shop V3"></div>
+            <div><img src="./static/images/EnvironmentVersions/ShopV4.png" alt="Shop V4"></div>
+            <div><img src="./static/images/EnvironmentVersions/ShopV5.png" alt="Shop V5"></div>
+            <div><img src="./static/images/EnvironmentVersions/ShopV6.png" alt="Shop V6"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TimeWarp Dataset Section -->
+  <section class="section" id="environment-dataset-section">
+    <div class="container is-max-widescreen">
+      <h2 class="title is-3 has-text-centered fade-in">TimeWarp Dataset</h2>
+      <div class="content has-text-centered fade-in">
+        <img src="./static/images/TimeWarpDataset.svg" alt="TimeWarp environment and dataset overview"
+          style="width: 100%; max-width: 1100px;">
+      </div>
+      <div class="columns is-centered fade-in" style="margin-top: 0rem;">
+        <div class="column is-half">
+          <div class="box"
+            style="background-color: #f5f5f5; height: 100%; border: 0; border-left: 4px solid transparent; border-image: linear-gradient(to bottom, #fab62fdc, #4169E1) 1;">
+            <p class="has-text-justified">
+              Four categories of tasks: Wiki, News, Shop, and Multi-Environment.
+            </p>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div class="box"
+            style="background-color: #f5f5f5; height: 100%; border: 0; border-left: 4px solid transparent; border-image: linear-gradient(to bottom, #fab62fdc, #4169E1) 1;">
+            <p class="has-text-justified">
+              231 unique goals × 6 environments = 1386 tasks.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dataset Viewer subsection -->
+      <div id="timewarp-hf-viewer-section" style="margin-top: 2.5rem;">
+        <h3 class="title is-5 has-text-centered fade-in">Dataset Viewer</h3>
+        <div class="content fade-in" style="max-width: 1000px; margin: 0 auto;">
+          <iframe
+            src="https://huggingface.co/datasets/sparklabutah/timewarp/embed/viewer"
+            style="width: 100%; height: 500px; border: none; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.08);"
+            loading="lazy"
+            title="TimeWarp Dataset Viewer">
+          </iframe>
+          <p class="has-text-centered" style="margin-top: 0.75rem; font-size: 0.9rem;">
+            View and explore the
+            <a href="https://huggingface.co/datasets/sparklabutah/timewarp" target="_blank" rel="noopener noreferrer">
+              TimeWarp dataset on Hugging Face
+            </a>.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -295,28 +418,6 @@
           <source src="./static/videos/methodologyTimeWarp.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-      </div>
-    </div>
-  </section>
-
-  <!-- Teaser Figure (from paper) -->
-  <section class="section teaser-section" id="teaser-figure-section">
-    <div class="container is-max-widescreen">
-      <h2 class="title is-3 has-text-centered fade-in">System Overview</h2>
-      <div class="content has-text-centered fade-in">
-        <img src="./static/images/teaser.webp" alt="SceneSmith teaser showing a generated community center scene"
-          style="width: 100%;">
-      </div>
-      <div class="content has-text-justified fade-in">
-        <p>
-          <strong>Fully automated text-to-scene generation.</strong> This entire community center was generated by
-          SceneSmith without any human intervention, from a single 151-word text prompt. Beyond explicitly specified
-          elements, SceneSmith places additional
-          objects from inferred contextual information, such as ping pong paddles and balls placed near a ping pong
-          table. Objects are generated on-demand, are fully separable (non-composite), and include estimated
-          physical properties, enabling direct interaction within a simulation. The resulting scenes are immediately
-          usable in arbitrary physics simulators (robots added for demonstration).
-        </p>
       </div>
     </div>
   </section>
@@ -1215,6 +1316,11 @@
   <!-- Scroll animations & sticky nav -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const methodologyVideo = document.getElementById('methodology-video');
+      if (methodologyVideo) {
+        methodologyVideo.playbackRate = 1.0;
+      }
+
       // Fade-in on scroll
       const fadeEls = document.querySelectorAll('.fade-in');
       const fadeObserver = new IntersectionObserver((entries) => {
