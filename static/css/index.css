@@ -485,7 +485,7 @@ html {
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+  background: linear-gradient(90deg, #fab62fdc, #4169E1);
   border-radius: 2px;
 }
 
@@ -503,7 +503,7 @@ html {
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+  background: linear-gradient(90deg, #fab62fdc, #4169E1);
   border-radius: 2px;
 }
 
@@ -867,7 +867,9 @@ html {
   padding: 1.25rem 1.5rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
-  border-left: 4px solid var(--accent);
+  border: 0;
+  border-left: 5px solid transparent;
+  border-image: linear-gradient(to bottom, #fab62fdc, #4169E1) 1;
 }
 
 .info-callout p {
