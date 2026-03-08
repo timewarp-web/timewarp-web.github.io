@@ -302,7 +302,8 @@ html {
   line-height: 1.15;
   letter-spacing: -0.02em;
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
   margin-bottom: 0.5rem;
 }
 
@@ -1531,6 +1532,17 @@ footer.footer .footer-bottom p {
 }
 
 /* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .hero-section .publication-title {
+    font-size: 2rem;
+  }
+
+  .hero-title-container {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
 @media (max-width: 768px) {
 
   /* Hide video, show animated gradient hero on mobile */
@@ -1593,7 +1605,7 @@ footer.footer .footer-bottom p {
   }
 
   .hero-section .publication-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   /* On mobile: hide logos (hero is too short) */
@@ -1648,6 +1660,10 @@ footer.footer .footer-bottom p {
 @media (max-width: 480px) {
   .stats-bar .stats-inner {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-section .publication-title {
+    font-size: 1.3rem;
   }
 }
 
