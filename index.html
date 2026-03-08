@@ -4,34 +4,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="description" content="TimeWarp: Evaluating Web Agents by Revisiting the Past">
-  <meta name="keywords" content="Scene Generation, Simulation, Indoor Scenes, VLM, Agents">
+  <meta name="keywords" content="Web Agents, LLM Agent, VLM Agent, Web Agent Benchmark">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Tags for link preview -->
   <meta property="og:title" content="TimeWarp: Evaluating Web Agents by Revisiting the Past" />
   <meta property="og:description"
-    content="A hierarchical agentic framework that generates simulation-ready indoor environments from natural language prompts." />
-  <meta property="og:url" content="https://scenesmith.github.io/" />
-  <meta property="og:image" content="https://scenesmith.github.io/static/images/teaser.webp" />
+    content="A web agent benchmark with varying UI" />
+  <meta property="og:url" content="https://timewarp-web.github.io/" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://scenesmith.github.io/static/images/teaser.webp" />
 
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9RH5ZJ2FEL"></script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-9RH5ZJ2FEL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-9RH5ZJ2FEL');
-  </script>
+  </script> -->
 
-  <link rel="icon" type="image/png" href="static/favicon/favicon-96x96.png" sizes="96x96" />
+  <!-- Hourglass emoji ⏳ (matches navbar) -->
   <link rel="icon" type="image/svg+xml" href="static/favicon/favicon.svg" />
-  <link rel="shortcut icon" href="static/favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="static/favicon/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" href="static/favicon/favicon.svg" />
 
   <title>TimeWarp: Evaluating Web Agents by Revisiting the Past</title>
 
@@ -73,10 +69,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
-
-
 <body>
-
   <!-- Sticky Navigation -->
   <nav class="site-nav" id="site-nav">
     <div class="nav-inner">
@@ -84,15 +77,13 @@
         ⏳ TimeWarp
       </a>
       <div class="nav-links">
-        <a href="#buildup-section">Construction</a>
-        <a href="#rby1-teleoperation-section">Teleoperation</a>
-        <a href="#text-to-scene-section">Text-to-Scene</a>
-        <a href="#earthquake-section">Simulation</a>
-        <a href="#room-scenes-section">Room Scenes</a>
-        <a href="#house-scenes-section">House Scenes</a>
-        <a href="#robot-eval-section">Robot Eval</a>
+        <a href="#environment-section">Environment</a>
+        <a href="#environment-dataset-section">Dataset</a>
+        <a href="#methodology-section">Methodology</a>
+        <a href="#bc-vs-agents-section">Demo</a>
+        <a href="#findings-section">Findings</a>
         <a href="#bibtex-section">Citation</a>
-        <div class="nav-dropdown">
+        <!-- <div class="nav-dropdown">
           <a class="nav-dropdown-trigger">More Research ⏳</a>
           <div class="nav-dropdown-content">
             <a href="https://steerable-scene-generation.github.io" target="_blank" rel="noopener noreferrer">Steerable
@@ -100,7 +91,7 @@
             <a href="https://scalable-real2sim.github.io" target="_blank" rel="noopener noreferrer">Scalable
               Real2Sim</a>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </nav>
@@ -157,7 +148,7 @@
             </div>
             <div class="column has-text-centered">
               <div class="publication-links">
-                <span class="link-block">
+                <!-- <span class="link-block">
                   <a href="https://arxiv.org/abs/2602.09153" class="external-link button is-normal is-rounded"
                     target="_blank">
                     <span class="icon"><i class="ai ai-arxiv"></i></span>
@@ -170,28 +161,28 @@
                     <span class="icon"><i class="fab fa-youtube"></i></span>
                     <span>Video</span>
                   </a>
-                </span>
+                </span> -->
                 <span class="link-block">
-                  <a href="https://github.com/nepfaff/scenesmith" class="external-link button is-normal is-rounded"
+                  <a href="https://github.com/sparklabutah/timewarp" class="external-link button is-normal is-rounded"
                     target="_blank">
                     <span class="icon"><i class="fab fa-github"></i></span>
                     <span>Code</span>
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://huggingface.co/datasets/nepfaff/scenesmith-example-scenes"
+                  <a href="https://huggingface.co/collections/sparklabutah/timewarp"
                     class="external-link button is-normal is-rounded" target="_blank">
                     <span class="icon"><i class="fas fa-database"></i></span>
-                    <span>Scene Dataset</span>
+                    <span>Dataset and Models</span>
                   </a>
                 </span>
-                <span class="link-block">
+                <!-- <span class="link-block">
                   <a href="https://x.com/NicholasEPfaff/status/2021626601780174969"
                     class="external-link button is-normal is-rounded" target="_blank">
                     <span class="icon"><i class="fab fa-twitter"></i></span>
                     <span>X Post</span>
                   </a>
-                </span>
+                </span> -->
               </div>
             </div>
           </div>
@@ -422,8 +413,158 @@
     </div>
   </section>
 
+  <!-- TimeWarp-BC vs Other Agents: single carousel -->
+  <section class="section" id="bc-vs-agents-section">
+    <div class="container is-max-widescreen">
+      <h2 class="title is-3 has-text-centered fade-in">Demo of TimeWarp-BC Agent</h2>
+      <div class="content has-text-centered fade-in" style="margin-top: 1.5rem;">
+        <div id="bc-vs-agents-carousel" class="bc-vs-agents-carousel">
+          <div>
+            <video controls muted autoplay loop playsinline
+              style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+              <source src="./static/videos/Presentation4.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Findings -->
+  <section class="section" id="findings-section">
+    <div class="container is-max-widescreen">
+      <h2 class="title is-3 has-text-centered fade-in">Findings</h2>
+      <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem;">
+        <div class="info-callout fade-in" style="border-left-width: 5px;">
+          <details>
+            <summary class="findings-summary-toggle">
+              Untrained web agents, especially visual ones, are vulnerable to temporal changes in the web UI. TimeWarp-BC improves both performance and robustness over vanilla behavior cloning.
+            </summary>
+            <div style="margin-top: 1rem; text-align: center;">
+              <a href="./static/images/MainTable.png" target="_blank" rel="noopener noreferrer">
+                <img src="./static/images/MainTable.png" alt="Main TimeWarp results table"
+                  style="max-width: 90%; border-radius: 8px;" />
+              </a>
+              <p style="font-size: 0.95rem; line-height: 1.6; margin: 0.75rem 0 0; color: var(--text-secondary);">
+                Success Rate (%) of LLM and VLM models on TimeWarp tasks using the observation setting: HTML, Accessibility Tree (AXT), UI Screenshot (SS), Set of Marks (SoM), or the AXT training setting: Behavior Clong (BC) on versions 1 to 6, version 6 only, and TimeWarp-BC (TW).
+              </p>
+            </div>
+          </details>
+        </div>
+        <div class="info-callout fade-in" style="border-left-width: 5px;">
+          <details>
+            <summary class="findings-summary-toggle">
+              Training on multiple versions generalize better.
+            </summary>
+            <div style="margin-top: 1rem; text-align: center;">
+              <a href="./static/images/gen.png" target="_blank" rel="noopener noreferrer">
+                <img src="./static/images/gen.png" alt="Generation results" style="max-width: 50%; border-radius: 8px;" />
+              </a>
+              <p style="font-size: 0.95rem; line-height: 1.6; margin: 0.75rem 0 0; color: var(--text-secondary);">
+                Training on more versions generally improve performance in held-out versions (in pink).
+              </p>
+            </div>
+          </details>
+        </div>
+        <div class="info-callout fade-in" style="border-left-width: 5px;">
+          <details>
+            <summary class="findings-summary-toggle">
+              Continually training on versions cause catastrophic forgetting and cross-dataset training doesn't help.
+            </summary>
+            <div style="margin-top: 1rem; text-align: center;">
+              <a href="./static/images/continual.png" target="_blank" rel="noopener noreferrer">
+                <img src="./static/images/continual.png" alt="Continual evaluation results" style="max-width: 50%; border-radius: 8px;" />
+              </a>
+              <p style="font-size: 0.95rem; line-height: 1.6; margin: 0.75rem 0 0; color: var(--text-secondary);">
+                (a) Continually training on version 1 from version 6, degrades the performance on version 6.
+                (b) Training on WebArena-Lite then TimeWarp also degrades performance. 
+              </p>
+            </div>
+          </details>
+        </div>
+        <div class="info-callout fade-in" style="border-left-width: 5px;">
+          <details>
+            <summary class="findings-summary-toggle">
+              Training on thinking, memory, and planning tokens help.
+            </summary>
+            <div style="margin-top: 1rem; text-align: center;">
+              <a href="./static/images/atmp.png" target="_blank" rel="noopener noreferrer">
+                <img src="./static/images/atmp.png" alt="ATMP analysis" style="max-width: 50%; border-radius: 8px;" />
+              </a>
+              <p style="font-size: 0.95rem; line-height: 1.6; margin: 0.75rem 0 0; color: var(--text-secondary);">
+                Behavior cloning performance peaks when trained with (T)hinking, (M)emory, and (P)lanning tokens.
+              </p>
+            </div>
+          </details>
+        </div>
+        <div class="info-callout fade-in" style="border-left-width: 5px;">
+          <details>
+            <summary class="findings-summary-toggle">
+              Agents fail slowly.
+            </summary>
+            <div style="margin-top: 1rem; text-align: center;">
+              <a href="./static/images/traj.png" target="_blank" rel="noopener noreferrer">
+                <img src="./static/images/traj.png" alt="Trajectory visualization" style="max-width: 100%; border-radius: 8px;" />
+              </a>
+              <p style="font-size: 0.95rem; line-height: 1.6; margin: 0.75rem 0 0; color: var(--text-secondary);">
+                Performance of web agents across versions and environments is correlated with the trajectory length. 
+              </p>
+            </div>
+          </details>
+        </div>
+        <div class="info-callout fade-in" style="border-left-width: 5px;">
+          <details>
+            <summary class="findings-summary-toggle">
+              LoRA doesn't improve performance but improves trajectory length.
+            </summary>
+            <div style="margin-top: 1rem; text-align: center;">
+              <a href="./static/images/lora.png" target="_blank" rel="noopener noreferrer">
+                <img src="./static/images/lora.png" alt="LoRA analysis" style="max-width: 100%; border-radius: 8px;" />
+              </a>
+              <p style="font-size: 0.95rem; line-height: 1.6; margin: 0.75rem 0 0; color: var(--text-secondary);">
+                Full Fine-tuning (FFT) outperforms LoRA at varying adapter ranks. However, the average trajectory length of LoRA is lower than that of FFT.
+              </p>
+            </div>
+          </details>
+        </div>
+        <div class="info-callout fade-in" style="border-left-width: 5px;">
+          <details>
+            <summary class="findings-summary-toggle">
+              More training data and training context length improves performance.
+            </summary>
+            <div style="margin-top: 1rem; text-align: center;">
+              <a href="./static/images/ablation.png" target="_blank" rel="noopener noreferrer">
+                <img src="./static/images/ablation.png" alt="Ablation study results" style="max-width: 100%; border-radius: 8px;" />
+              </a>
+              <p style="font-size: 0.95rem; line-height: 1.6; margin: 0.75rem 0 0; color: var(--text-secondary);">
+                (a) Success rate of TimeWarp-BC (TW) agent grows almost linearly with more training data but not the Behavior Cloning (BC) on version 6 agent.
+                (b) Highest success rate is achieved when trained with 64k context for 3 epochs.
+              </p>
+            </div>
+          </details>
+        </div>
+        <div class="info-callout fade-in" style="border-left-width: 5px;">
+          <details>
+            <summary class="findings-summary-toggle">
+              Agents fail in unseen challenges due to temporal changes in the web UI.
+            </summary>
+            <div style="margin-top: 1rem; text-align: center;">
+              <a href="./static/images/error.png" target="_blank" rel="noopener noreferrer">
+                <img src="./static/images/error.png" alt="Error analysis" style="max-width: 100%; border-radius: 8px;" />
+              </a>
+              <p style="font-size: 0.95rem; line-height: 1.6; margin: 0.75rem 0 0; color: var(--text-secondary);">
+                Web agent getting stuck due to a popup ad in shop version 5.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Authors -->
-  <section class="section section-alt" id="authors-section">
+  <!-- <section class="section section-alt" id="authors-section">
     <div class="container is-max-desktop has-text-centered">
       <h2 class="title is-3 fade-in">Authors</h2>
       <p class="is-size-5 fade-in" style="color: var(--text-secondary);">
@@ -438,7 +579,7 @@
         <sup>2</sup>Toyota Research Institute
       </p>
     </div>
-  </section>
+  </section> -->
 
   <!-- BibTeX -->
   <section class="section" id="bibtex-section">
@@ -446,15 +587,7 @@
       <h2 class="title is-3 has-text-centered fade-in">Citation</h2>
       <div class="fade-in">
         <pre
-          style="background: var(--surface-dark); color: rgba(255,255,255,0.8); border-radius: var(--radius); padding: 1.5rem; font-size: 0.85rem; overflow-x: auto;"><code>@misc{scenesmith2026,
-  title={SceneSmith: Agentic Generation of Simulation-Ready Indoor Scenes},
-  author={Nicholas Pfaff and Thomas Cohn and Sergey Zakharov and Rick Cory and Russ Tedrake},
-  year={2026},
-  eprint={2602.09153},
-  archivePrefix={arXiv},
-  primaryClass={cs.RO},
-  url={https://arxiv.org/abs/2602.09153},
-}</code></pre>
+          style="background: var(--surface-dark); color: rgba(255,255,255,0.8); border-radius: var(--radius); padding: 1.5rem; font-size: 0.85rem; overflow-x: auto;"><code>To Be Updated</code></pre>
       </div>
     </div>
   </section>
@@ -464,16 +597,7 @@
       <h2 class="title is-3 has-text-centered fade-in">Acknowledgements</h2>
       <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
         <p style="line-height: 1.8; text-align: justify;">
-          This work was partially supported by Amazon.com (PO No. 2D-19158853), the Office of Naval Research (ONR) under
-          Grant No. N00014-22-1-2121, the Toyota Research Institute (TRI), and the National Science Foundation Graduate
-          Research Fellowship Program under Grant No. 2141064. This article reflects only the views of the authors and
-          not those of TRI or any other Toyota entity. Any opinions, findings, and conclusions or recommendations
-          expressed in this material are those of the authors and do not necessarily reflect the views of the National
-          Science Foundation or other funding organizations.
-        </p>
-        <p style="line-height: 1.8; text-align: justify; margin-top: 1rem;">
-          We thank Hongkai Dai, Jeremy Binagia, Peter Werner, and Tom Erez for helpful discussions. We also thank
-          Patrick Farrell for assistance with the videos.
+          We would like to thank Nejd Khadija in helping with the task and plan annotation.
         </p>
       </div>
     </div>
@@ -538,7 +662,7 @@
             <span class="icon"><i class="fas fa-atom"></i></span>
             <span>Inertia</span>
           </button>
-        </div>
+       </div>
       </div>
     </div>
     <button class="modal-close is-large" aria-label="close" id="isolated-fullscreen-close-btn"></button>
@@ -549,25 +673,24 @@
       <div class="columns">
         <div class="column is-6">
           <div class="footer-brand">
-            <img src="./static/images/symbol_no_text.svg" alt=""> SceneSmith
+            <img src="./static/images/symbol_no_text.svg" alt=""> TimeWarp
           </div>
           <p class="footer-tagline">
-            Agentic generation of simulation-ready indoor scenes from natural language prompts.
+            Evaluating Web Agents by Revisiting the Past
           </p>
         </div>
         <div class="column is-6" style="display: flex; align-items: center; justify-content: flex-end;">
           <div class="footer-links">
             <a href="#hero"><i class="fas fa-arrow-up"></i> Back to top</a>
-            <a href="#buildup-section">Construction</a>
-            <a href="#room-scenes-section">Explore Scenes</a>
-            <a href="#robot-eval-section">Robot Eval</a>
           </div>
         </div>
       </div>
       <hr class="footer-divider">
       <div class="footer-bottom">
         <p>Template adapted from <a href="https://github.com/nerfies/nerfies.github.io" target="_blank"
-            rel="noopener noreferrer" style="color: rgba(255,255,255,0.5);">Nerfies</a></p>
+            rel="noopener noreferrer" style="color: rgba(255,255,255,0.5);">Nerfies</a> and <a
+            href="https://github.com/scenesmith/scenesmith.github.io" target="_blank" rel="noopener noreferrer"
+            style="color: rgba(255,255,255,0.5);">SceneSmith</a></p>
         <p>&copy; 2026</p>
       </div>
     </div>

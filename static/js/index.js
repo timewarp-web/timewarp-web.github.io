@@ -37,6 +37,16 @@ $(document).ready(function () {
     initialSlide: 0,
   });
 
+  // TimeWarp-BC vs Other Agents: single carousel
+  $('#bc-vs-agents-carousel').slick({
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    autoplay: false,
+    arrows: true,
+  });
+
   // Initialize inner (per-environment version) carousels first
   var innerCarouselConfig = {
     dots: true,

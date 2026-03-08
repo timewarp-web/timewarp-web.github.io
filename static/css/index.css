@@ -1108,6 +1108,48 @@ html {
   margin: 0;
 }
 
+/* ---- Findings dropdown ---- */
+.findings-summary-toggle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+  cursor: pointer;
+  list-style: none;
+  padding-left: 1.6rem;
+  position: relative;
+  color: var(--text-primary);
+  font-weight: 600;
+  user-select: none;
+}
+
+.findings-summary-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.findings-summary-toggle::marker {
+  content: "";
+}
+
+.findings-summary-toggle::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.15rem;
+  color: #fab62f;
+  transition: transform var(--transition), color var(--transition);
+}
+
+details[open] .findings-summary-toggle::before {
+  content: "▾";
+  color: #4169e1;
+}
+
+.findings-summary-toggle:hover {
+  color: var(--text-primary);
+}
+
 /* ---- Video Spinners ---- */
 .video-spinner {
   position: absolute;
