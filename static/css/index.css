@@ -314,6 +314,18 @@ html {
   background-clip: text;
 }
 
+.hero-section .publication-authors .author-accent {
+  background: linear-gradient(90deg, #fab62fdc, #4169E1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  font-weight: 600;
+}
+.hero-section .publication-authors .author-accent:hover {
+  opacity: 0.9;
+}
+
 .hero-section .publication-authors {
   font-family: 'Google Sans', sans-serif;
   color: rgba(255, 255, 255, 0.7);
@@ -701,6 +713,9 @@ html {
 #bc-vs-agents-carousel {
   border-radius: 0;
   overflow: hidden;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #bc-vs-agents-carousel .slick-prev,
