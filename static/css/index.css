@@ -683,6 +683,59 @@ html {
   overflow: hidden;
 }
 
+/* Demo of TimeWarp-BC Agent carousel */
+.demo-agent-wrap {
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(0, 180, 216, 0.1);
+  overflow: hidden;
+}
+.demo-agent-header {
+  border-radius: 0;
+  border-bottom: 1px solid rgba(0, 180, 216, 0.1);
+}
+#bc-vs-agents-carousel {
+  border-radius: 0;
+  overflow: hidden;
+}
+
+#bc-vs-agents-carousel .slick-prev,
+#bc-vs-agents-carousel .slick-next {
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all var(--transition);
+}
+
+#bc-vs-agents-carousel .slick-prev:hover,
+#bc-vs-agents-carousel .slick-next:hover {
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+}
+
+#bc-vs-agents-carousel .slick-prev { left: 10px; }
+#bc-vs-agents-carousel .slick-next { right: 10px; }
+
+/* Remove the extra bottom margin Slick adds for the dots row */
+#bc-vs-agents-carousel.slick-dotted.slick-slider {
+  margin-bottom: 0;
+}
+
+/* TimeWarp methodology video */
+#methodology-video {
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 /* Each environment outer slide */
 .env-outer-slide {
   background: #fff;
@@ -796,7 +849,7 @@ html {
 
 /* Extra bottom padding so dots have room */
 .env-outer-slide {
-  padding-bottom: 2.5rem;
+  padding-bottom: 1rem;
 }
 
 @media (max-width: 768px) {

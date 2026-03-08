@@ -38,6 +38,7 @@ $(document).ready(function () {
   });
 
   // TimeWarp-BC vs Other Agents: single carousel
+  var demoAgentLabels = ['Task: What is the population difference between the two special administrative regions of China?', 'Task: Does any article on Richard Dawkins appear in the search results when you search "Richard Stallman"?', 'Task: How many times does the phrase "baking soda" appear on the Arm & Hammer Toothpaste product page?'];
   $('#bc-vs-agents-carousel').slick({
     dots: true,
     infinite: true,
@@ -45,6 +46,10 @@ $(document).ready(function () {
     slidesToShow: 1,
     autoplay: false,
     arrows: true,
+  });
+  $('#bc-vs-agents-carousel').on('afterChange', function(event, slick, currentSlide) {
+    $('#demo-agent-label').text(demoAgentLabels[currentSlide]);
+    $('#demo-agent-cur').text(currentSlide + 1);
   });
 
   // Initialize inner (per-environment version) carousels first
