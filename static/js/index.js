@@ -7,36 +7,6 @@ $(document).ready(function () {
     $(".navbar-menu").toggleClass("is-active");
   });
 
-  // Initialize buildup carousel
-  $('#buildup-carousel').slick({
-    dots: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 1,
-    autoplay: false,
-    initialSlide: 0,
-  });
-
-  // Initialize RBY1 teleoperation carousel
-  $('#rby1-carousel').slick({
-    dots: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 1,
-    autoplay: false,
-    initialSlide: 0,
-  });
-
-  // Initialize robot evaluation carousel
-  $('#robot-eval-carousel').slick({
-    dots: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 1,
-    autoplay: false,
-    initialSlide: 0,
-  });
-
   // TimeWarp-BC vs Other Agents: single carousel
   var demoAgentLabels = ['Task: What is the population difference between the two special administrative regions of China?', 'Task: Does any article on Richard Dawkins appear in the search results when you search "Richard Stallman"?', 'Task: How many times does the phrase "baking soda" appear on the Arm & Hammer Toothpaste product page?'];
   $('#bc-vs-agents-carousel').slick({
@@ -156,70 +126,3 @@ $(document).ready(function () {
     e.stopPropagation();
   });
 });
-
-$(window).on("load", function () {
-  // Reset gifs once everything is loaded to synchronize playback.
-  $('.preload').attr('src', function (i, a) {
-    $(this).attr('src', '').removeClass('preload').attr('src', a);
-  });
-
-  $('.author-portrait').each(function () {
-    $(this).mouseover(function () {
-      $(this).find('.depth').css('top', '-100%');
-    });
-    $(this).mouseout(function () {
-      $(this).find('.depth').css('top', '0%');
-    });
-  });
-
-
-  const position = { x: 0, y: 0 }
-  const box = $('.hyper-space');
-  const cursor = $('.hyper-space-cursor');
-  interact('.hyper-space-cursor').draggable({
-    listeners: {
-      start(event) {
-        console.log(event.type, event.target)
-      },
-      move(event) {
-        position.x += event.dx
-        position.y += event.dy
-
-        event.target.style.transform =
-          `translate(${position.x}px, ${position.y}px)`
-
-        let childPos = cursor.offset();
-        let parentPos = box.offset();
-        let childSize = cursor.outerWidth();
-        let point = {
-          x: (childPos.left - parentPos.left),
-          y: (childPos.top - parentPos.top)
-        };
-        point = {
-          x: (point.x) / (box.innerWidth() - childSize),
-          y: (point.y) / (box.innerHeight() - childSize)
-        }
-        updateHyperGrid(point);
-      },
-    },
-    modifiers: [
-      interact.modifiers.restrictRect({
-        restriction: 'parent'
-      })
-    ]
-  });
-
-});
-
-Number.prototype.clamp = function (min, max) {
-  return Math.min(Math.max(this, min), max);
-};
-
-
-function updateHyperGrid(point) {
-  const n = 20 - 1;
-  let top = Math.round(n * point.y.clamp(0, 1)) * 100;
-  let left = Math.round(n * point.x.clamp(0, 1)) * 100;
-  $('.hyper-grid-rgb > img').css('left', -left + '%');
-  $('.hyper-grid-rgb > img').css('top', -top + '%');
-}
