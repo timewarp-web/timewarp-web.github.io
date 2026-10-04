@@ -1,5 +1,31 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
+document.addEventListener('DOMContentLoaded', function () {
+  function enableMascotReaction(buttonId, containerSelector, reactionClass, duration) {
+    var mascotButton = document.getElementById(buttonId);
+    if (!mascotButton) return;
+
+    var mascot = mascotButton.closest(containerSelector);
+    var resetTimer;
+
+    mascotButton.addEventListener('click', function () {
+      clearTimeout(resetTimer);
+      mascot.classList.remove(reactionClass);
+      // Restart the animation when the mascot is clicked again.
+      void mascot.offsetWidth;
+      mascot.classList.add(reactionClass);
+
+      resetTimer = setTimeout(function () {
+        mascot.classList.remove(reactionClass);
+      }, duration);
+    });
+  }
+
+  enableMascotReaction('timewarp-mascot', '.environment-mascot', 'is-angry', 2400);
+  enableMascotReaction('methodology-mascot', '.methodology-mascot', 'is-startled', 2800);
+  enableMascotReaction('findings-mascot', '.findings-mascot', 'is-reacting', 1900);
+});
+
 $(document).ready(function () {
   // Check for click events on the navbar burger icon
   $(".navbar-burger").click(function () {

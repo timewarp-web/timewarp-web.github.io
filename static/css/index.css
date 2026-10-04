@@ -628,6 +628,8 @@ footer.footer a:focus-visible {
 
 /* Outer carousel — full width, fade between environments */
 #env-outer-carousel {
+  width: 100%;
+  min-width: 0;
   max-width: 1113px;
   margin: 0 auto;
 }
@@ -637,17 +639,111 @@ footer.footer a:focus-visible {
   overflow: hidden;
 }
 
+/* Interactive mascot beside the environment carousel. */
+.environment-showcase {
+  position: relative;
+  max-width: 1113px;
+  margin: 0 auto;
+}
+
+.environment-mascot {
+  /* Fit the left gutter without moving or shrinking the centered carousel. */
+  position: absolute;
+  right: calc(100% + 16px);
+  top: 50%;
+  width: min(220px, calc((100vw - 1113px) / 2 - 40px));
+  transform: translateY(-50%);
+}
+
+.mascot-button {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mascot-button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 6px;
+}
+
+.mascot-art {
+  position: relative;
+  display: block;
+  transition: transform 160ms ease;
+}
+
+.mascot-button:hover .mascot-art {
+  transform: translateY(-4px);
+}
+
+.mascot-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.mascot-angry {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  opacity: 0;
+}
+
+.environment-mascot.is-angry .mascot-angry {
+  opacity: 1;
+}
+
+.environment-mascot.is-angry .mascot-art {
+  animation: mascot-shake 400ms steps(2, end);
+}
+
+@keyframes mascot-shake {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  20%, 60% { transform: translateX(-2px) rotate(-1deg); }
+  40%, 80% { transform: translateX(2px) rotate(1deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mascot-art {
+    transition: none;
+  }
+
+  .mascot-button:hover .mascot-art,
+  .environment-mascot.is-angry .mascot-art {
+    animation: none;
+    transform: none;
+  }
+}
+
 /* Demo of TimeWarp-BC Agent carousel */
 .demo-agent-wrap {
+  width: 100%;
+  min-width: 0;
   max-width: 1113px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 1.5rem auto 0;
   background: #fff;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   border: 1px solid rgba(0, 180, 216, 0.1);
   overflow: hidden;
 }
+
+@media (max-width: 1439px) {
+  .environment-mascot,
+  .methodology-mascot,
+  .findings-mascot {
+    display: none;
+  }
+}
+
 .demo-agent-header {
   border-radius: 0;
   border-bottom: 1px solid rgba(0, 180, 216, 0.1);
@@ -687,6 +783,87 @@ footer.footer a:focus-visible {
 }
 
 /* TimeWarp methodology video */
+.methodology-showcase {
+  position: relative;
+  max-width: 1187.5px;
+  margin: 0 auto;
+}
+
+.methodology-mascot {
+  position: absolute;
+  left: calc(100% + 16px);
+  top: 50%;
+  width: min(160px, calc((100vw - 1187.5px) / 2 - 40px));
+  height: auto;
+  transform: translateY(-50%) scaleX(-1);
+}
+
+.methodology-mascot-art {
+  position: relative;
+  display: block;
+}
+
+.methodology-mascot-startled {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  opacity: 0;
+}
+
+.methodology-dropped-logo {
+  position: absolute;
+  left: 57.2%;
+  top: 36.7%;
+  width: 35.5%;
+  height: auto;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.methodology-mascot.is-startled .methodology-mascot-startled {
+  opacity: 1;
+}
+
+.methodology-mascot.is-startled .methodology-mascot-art {
+  animation: mascot-startle 460ms ease-out;
+}
+
+.methodology-mascot.is-startled .methodology-dropped-logo {
+  opacity: 1;
+  transform: translate(10%, 330%) rotate(14deg);
+  animation: mascot-logo-drop 900ms linear both;
+}
+
+@keyframes mascot-startle {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  25% { transform: translateY(-8px) rotate(-2deg); }
+  55% { transform: translateY(-4px) rotate(2deg); }
+}
+
+@keyframes mascot-logo-drop {
+  0% {
+    transform: translate(0, 0) rotate(0);
+    animation-timing-function: ease-in;
+  }
+  58% {
+    transform: translate(8%, 330%) rotate(18deg);
+    animation-timing-function: ease-out;
+  }
+  76% {
+    transform: translate(9%, 275%) rotate(8deg);
+    animation-timing-function: ease-in;
+  }
+  92%, 100% { transform: translate(10%, 330%) rotate(14deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .methodology-mascot.is-startled .methodology-mascot-art,
+  .methodology-mascot.is-startled .methodology-dropped-logo {
+    animation: none;
+  }
+}
+
 #methodology-video {
   max-width: 1187.5px;
   margin-left: auto;
@@ -926,6 +1103,95 @@ footer.footer a:focus-visible {
 }
 
 /* ---- Findings dropdown ---- */
+.findings-showcase {
+  position: relative;
+  max-width: 1125px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.findings-mascot {
+  position: absolute;
+  left: calc(100% + 16px);
+  bottom: 0;
+  width: min(320px, calc((100vw - 1125px) / 2 - 40px));
+  height: auto;
+}
+
+.findings-mascot-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  user-select: none;
+  pointer-events: none;
+}
+
+.findings-raised-arm {
+  transform-origin: 759px 378px;
+}
+
+.findings-lowered-arm {
+  transform-origin: 374px 508px;
+}
+
+.findings-exclamation-high {
+  transform-origin: 274px 155px;
+}
+
+.findings-exclamation-low {
+  transform-origin: 207px 292px;
+}
+
+.findings-mascot.is-reacting .findings-raised-arm {
+  animation: findings-hand-wave 1600ms ease-in-out;
+}
+
+.findings-mascot.is-reacting .findings-lowered-arm {
+  animation: findings-hand-wave 1600ms 100ms ease-in-out;
+}
+
+.findings-mascot.is-reacting .findings-exclamation {
+  animation: findings-exclamation-bounce 1600ms ease-in-out;
+}
+
+.findings-mascot.is-reacting .findings-exclamation-low {
+  animation-delay: 120ms;
+}
+
+@keyframes findings-hand-wave {
+  0%, 100% { transform: rotate(0); }
+  15%, 45% { transform: rotate(12deg); }
+  30%, 60% { transform: rotate(2deg); }
+  75% { transform: rotate(7deg); }
+}
+
+@keyframes findings-exclamation-bounce {
+  0%, 100% { transform: translateY(0) rotate(0) scale(1); }
+  15%, 45% { transform: translateY(-34px) rotate(-8deg) scale(1.12); }
+  30%, 60% { transform: translateY(0) rotate(6deg) scale(1); }
+  75% { transform: translateY(-18px) rotate(-4deg) scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .findings-mascot.is-reacting .findings-raised-arm,
+  .findings-mascot.is-reacting .findings-lowered-arm,
+  .findings-mascot.is-reacting .findings-exclamation {
+    animation: none;
+  }
+
+  .findings-mascot.is-reacting .findings-raised-arm,
+  .findings-mascot.is-reacting .findings-lowered-arm {
+    transform: rotate(6deg);
+  }
+
+  .findings-mascot.is-reacting .findings-exclamation {
+    transform: translateY(-16px);
+  }
+}
+
 .findings-summary-toggle {
   font-size: 1.05rem;
   line-height: 1.7;
