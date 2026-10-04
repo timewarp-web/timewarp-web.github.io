@@ -133,10 +133,11 @@
               <h1 class="title is-1 publication-title">
                 <span class="accent-text">TimeWarp:</span> Evaluating Web Agents by Revisiting the Past
               </h1>
+              <p class="publication-venue">NeurIPS 2026 Evaluations and Datasets Track</p>
               <p class="publication-authors">
-                <a href="https://farhanishmam.github.io/" class="author-accent" target="_blank" rel="noopener noreferrer">Md Farhan
+                <a href="https://farhanishmam.github.io/" target="_blank" rel="noopener noreferrer">Md Farhan
                   Ishmam</a> and
-                <a href="https://kennethmarino.com/" class="author-accent" target="_blank" rel="noopener noreferrer">Kenneth Marino</a>
+                <a href="https://kennethmarino.com/" target="_blank" rel="noopener noreferrer">Kenneth Marino</a>
               </p>
             </div>
             <div class="column has-text-centered">
@@ -219,7 +220,7 @@
   <!-- Micro-Abstract -->
   <section class="section" id="about-section" style="padding-top: 3.5rem; padding-bottom: 2.5rem;">
     <div class="container is-max-widescreen">
-      <div class="info-callout fade-in" style="max-width: 900px; margin: 0 auto; border-left-width: 5px;">
+      <div class="info-callout fade-in" style="max-width: 1125px; margin: 0 auto; border-left-width: 5px;">
         <p style="font-size: 1.05rem; line-height: 1.7;">
           <strong>TimeWarp</strong> is a benchmark for evaluating the robustness of agents to temporal changes in web UI.
           TimeWarp consists of three web environments: <i>Wiki</i>, <i>News</i>, and <i>Shop</i>, each with six UI
@@ -335,16 +336,16 @@
       </div>
       <div class="content has-text-centered fade-in">
         <img src="./static/images/TimeWarpDataset.svg" alt="TimeWarp environment and dataset overview"
-          style="width: 100%; max-width: 1100px;">
+          style="width: 100%; max-width: 1375px;">
       </div>
 
       <!-- Dataset Viewer subsection -->
       <div id="timewarp-hf-viewer-section" style="margin-top: 2.5rem;">
         <h3 class="title is-5 has-text-centered fade-in">Dataset Viewer</h3>
-        <div class="content fade-in" style="max-width: 1000px; margin: 0 auto;">
+        <div class="content fade-in" style="max-width: 1250px; margin: 0 auto;">
           <iframe
             src="https://huggingface.co/datasets/sparklabutah/timewarp/embed/viewer?theme=light"
-            style="width: 100%; height: 500px; border: none; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.08);"
+            class="dataset-viewer"
             loading="lazy"
             title="TimeWarp Dataset Viewer">
           </iframe>
@@ -432,7 +433,7 @@
   <section class="section" id="findings-section">
     <div class="container is-max-widescreen">
       <h2 class="title is-3 has-text-centered fade-in">Findings</h2>
-      <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem;">
+      <div style="max-width: 1125px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem;">
         <div class="info-callout fade-in" style="border-left-width: 5px;">
           <details>
             <summary class="findings-summary-toggle">
@@ -584,15 +585,17 @@
       <h2 class="title is-3 has-text-centered fade-in">Citation</h2>
       <div class="fade-in">
         <pre
-          style="background: #fff; color: var(--text-primary); border: 1px solid var(--border-subtle); border-radius: var(--radius); padding: 1.5rem; font-size: 0.85rem; overflow-x: auto;"><code>@misc{timewarp2026,
-      title={TimeWarp: Evaluating Web Agents by Revisiting the Past}, 
-      author={Md Farhan Ishmam and Kenneth Marino},
-      year={2026},
-      eprint={2603.04949},
-      archivePrefix={arXiv},
-      primaryClass={cs.AI},
-      url={https://arxiv.org/abs/2603.04949}, 
-  }</code></pre>
+          style="background: #fff; color: var(--text-primary); border: 1px solid var(--border-subtle); border-radius: var(--radius); padding: 1.5rem; font-size: 0.85rem; overflow-x: auto;"><code>@inproceedings{ishmam2026timewarp,
+  title         = {{TimeWarp}: Evaluating Web Agents by Revisiting the Past},
+  author        = {Ishmam, Md Farhan and Marino, Kenneth},
+  booktitle     = {Fortieth Conference on Neural Information Processing Systems Evaluations and Datasets Track},
+  year          = {2026},
+  note          = {To appear},
+  eprint        = {2603.04949},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  url           = {https://arxiv.org/abs/2603.04949}
+}</code></pre>
       </div>
     </div>
   </section>
@@ -600,9 +603,9 @@
   <section class="section section-alt" id="acknowledgements-section">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered fade-in">Acknowledgements</h2>
-      <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
+      <div class="fade-in" style="max-width: 1000px; margin: 0 auto;">
         <p style="line-height: 1.8; text-align: justify;">
-          We would like to thank Nejd Khadija for helping with the task and plan annotation.
+          We thank Khadija Nejd for her careful annotation of the training tasks and for refining the execution plans. We also thank Dai-Jie Wu for the helpful feedback on an earlier draft of this paper.
         </p>
       </div>
     </div>
@@ -628,7 +631,7 @@
       <hr class="footer-divider">
       <div class="footer-bottom">
         <p>Template adapted from <a href="https://github.com/nerfies/nerfies.github.io" target="_blank"
-            rel="noopener noreferrer" style="color: rgba(255,255,255,0.5);">Nerfies</a></p>
+            rel="noopener noreferrer">Nerfies</a></p>
         <p>&copy; 2026</p>
       </div>
     </div>
